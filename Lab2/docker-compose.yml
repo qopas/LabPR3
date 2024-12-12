@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  server1:
+    image: mainserver1
+    networks:
+      - my-network
+    build: .
+    environment:
+      - SERVER_ID=Server1
+    ports:
+      - "8081:8080"
+  
+  server2:
+    image: mainserver2
+    networks:
+      - my-network
+    build: .
+    environment:
+      - SERVER_ID=Server2
+    ports:
+      - "8082:8080"
+  
+  server3:
+    image: mainserver3
+    networks:
+      - my-network
+    build: .
+    environment:
+      - SERVER_ID=Server3
+    ports:
+      - "8083:8080"
+
+networks:
+  my-network:
+    driver: bridge
